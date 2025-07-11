@@ -1,0 +1,315 @@
+<!DOCTYPE html
+<html>
+<title>Dr Sue Cheatham</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+    height: 100%;
+    color: #777;
+    line-height: 1.2;
+}
+
+/* Create a Parallax Effect */
+.bgimg-1, .bgimg-2, .bgimg-3, .bgimg4 {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* First image (Logo. Full height) */
+.bgimg-1 {
+    background-image: url("images/Businesscard.png");
+    min-height: 100%;
+}
+
+/* Second image (Work Experience) */
+.bgimg-2 {
+    background-image: url("images/mural.png");
+    min-height: 400px;
+}
+
+/* Third image (Education) */
+.bgimg-3 {
+    background-image: url("images/magnet.png");
+    min-height: 400px;
+}
+
+/* Fourth image (Contact) */
+.bgimg-4 {
+    background-image: url("images/Cham.jpg");
+    min-height: 400px;
+}
+
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+    .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
+        background-attachment: scroll;
+    }
+}
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="#home" class="w3-bar-item w3-button">HOME</a>
+    <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
+    <a href="#work experience" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> WORK EXPERIENCE</a>
+    <a href="#education" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-laptop"></i> EDUCATION</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
+      <i class="fa fa-search"></i>
+    </a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
+    <a href="#work experience" class="w3-bar-item w3-button" onclick="toggleFunction()">WORK EXPERIENCE</a>
+    <a href="#education" class="w3-bar-item w3-button" onclick="toggleFunction()">EDUCATION</a>
+    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+    <a href="#" class="w3-bar-item w3-button">SEARCH</a>
+  </div>
+</div>
+
+<!-- First Parallax Image with Logo Text -->
+<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+  <div class="w3-display-middle" style="white-space:nowrap;">
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">DR <span class="w3-hide-small">SUE</span> CHEATHAM</span>
+  </div>
+</div>
+
+<!-- Container (About Section) -->
+<div class="w3-content w3-container w3-padding-64" id="about">
+  <h3 class="w3-center">ABOUT ME</h3>
+
+  <div class="w3-row">
+    <div class="w3-col m6 w3-center w3-padding-large">
+      <img src="images/SueControlRoom.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="100%"><!--width="400" height="333">-->
+    </div>
+
+    <!-- Hide this text on small devices -->
+    <div class="w3-col m6 w3-hide-small w3-padding-medium">
+      <p>I'm an independent data science and AI consultant who partners with organizations to unlock insights from their data and implement practical AI solutions.
+
+      <p>I hold a PhD in experimental particle physics from Lancaster University and CERN, where I developed expertise in analyzing complex datasets. Following seven years of postdoctoral research, I transitioned to consulting, gaining valuable experience in applying analytical skills across diverse business contexts.</p>
+      <p>My experience in international research collaborations and consulting has strengthened my ability to manage multiple projects simultaneously while maintaining quality and meeting deadlines.</p>
+      <p>I'm naturally curious and enjoy the challenge of translating complex problems into actionable solutions.</p>
+
+    </div>
+  </div>
+  <p class="w3-large w3-center w3-padding-16">Key Competencies:</p>
+  <p class="w3-medium"><i class="fa fa-star"></i> Programming languages: Python, SQL, statistical modelling.</p>
+  <p class="w3-medium"><i class="fa fa-star"></i> AI & Machine Learning: Experience with modern frameworks including Hugging Face, cloud computing platforms, and Jupyter notebooks</p>
+  <p><i class="fa fa-star"></i> Project Delivery: Proven track record of collaborating with cross-functional teams to deliver projects on schedule.</p>
+  <p><i class="fa fa-star"></i> Communication: Skilled in presenting technical findings to both technical and non-technical audiences</p>
+</div>
+
+
+<div class="w3-row w3-center w3-dark-grey w3-padding-16">
+  <div class="w3-third w3-section">
+  <span class="w3-xlarge">  
+    Achieving Results
+  </div>
+  <div class="w3-third w3-section">
+    <span class="w3-xlarge">  
+    Learning and Sharing Knowledge
+  </div>
+  <div class="w3-third w3-section">
+    <span class="w3-xlarge">  
+    Problem Solving
+  </div>
+</div>
+
+<!-- Second Parallax Image with Work Experience Text -->
+<div class="bgimg-2 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+    <span class="w3-xxlarge w3-text-white w3-wide">WORK EXPERIENCE</span>
+  </div>
+</div>
+
+<!-- Container (Work Experience Section) -->
+<div class="w3-content w3-container w3-padding-64" id="work experience">
+  <h3 class="w3-center">WORK EXPERIENCE</h3>
+
+  <div class="w3-container">
+    <h5 class="w3-opacity"><b>Independent Data Science Consultant</b></h5>
+    <h6 class="w3-text-indigo"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Apr 2019 - <span class="w3-tag w3-indigo w3-round">Current</span></h6>
+    <p>I work with various clients, understanding their needs, solving problems with curiosity to produce data driven insights.</p>
+    <p>Past clients include:</p>
+
+    <ul>
+      <li>UNHCR - Researching the feasibility of applying AI to legal analysis for refugees and asylum seekers.</li>
+      <li>WHO - Enhanced vaccine safety analysis using advanced Natural Language Processing and unsupervised learning techniques, delivering greater understanding of global health issues.</li>
+      <li>OPBG Children’s hospital - Boosted social media health monitoring accuracy by over 10% through fine-tuning of multi-lingual Large Language Models.</li>
+      <li>IUCN - AI-powered solutions developed for extracting critical insights on plastic waste impact in Small Island Developing States.</li>
+      <li>Bridges to Development NGO - Data-driven gap analysis for , creating visualisations to share data insights, optimizing vaccine implementation strategies in low and lower-middle-income countries.</li>
+
+      <li>Distillery Saint Gervais Mont Blanc - Achieved 100% turnaround for a local startup distillery, as measured by financial stability indicators, by implementing strategic financial planning, business strategy, and digital transformation initiatives.</li>
+
+      <li>Webster University - Teaching "Database Applications" at Webster University, Geneva. Rated 4.63/5.0 from student evaluation scores across engagement, organisation, expertise and rapport (university average: 4.40). Final projects demonstrated real world applications using Oracle Apex.</li>
+      <li>AllWomen - Delivering training for allWomen in Artificial Intelligence including coding and ethics.</li>
+      <li>EPFL - Presented "Story-telling through data”.</li>
+
+    </ul>  
+
+    <hr>
+  </div>
+  <div class="w3-container">
+    <h5 class="w3-opacity"><b>Python Course Developer / EFL</b></h5>
+    <h6 class="w3-text-indigo"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Apr 2018 - Mar 2019</h6>
+    <p>The mission of the EPFL Extension School is to enable everyone to learn the skills necessary to benefit from the opportunities of the digital age. I developed Python programming courses.</p>
+    <hr>
+  </div>
+  <div class="w3-container">
+    <h5 class="w3-opacity"><b>Independent Data Science Consultant</b></h5>
+    <h6 class="w3-text-indigo"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Oct 2017 - Mar 2018</h6>
+    <p>Applying problem solving and technical skills learnt from physics research to help solve real-world issues. </p>
+    <hr>
+  </div>
+  <div class="w3-container">
+    <h5 class="w3-opacity"><b>Postdoctoral Researcher at  CERN</b></h5>
+    <h6 class="w3-text-indigo"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sept 2010 - Sept 2017</h6>
+ <ul>
+    <li>Leading role in the ATLAS Outreach Group, developing an educational platform providing open data and visualisation tools. </li>
+    <li>Data analysis contributing to Higgs boson study, using multivariate analysis techniques.</li>
+    <li>Developed technical software to search for long-lived particles.</li>
+    <li>Major developer of the key data taking monitoring tool used in ATLAS control room.</li>
+    <li>Co-editor and contributor to several different ATLAS analyses.</li>
+    <li>Supervisor for PhD students and undergraduate summer student.</li>
+ </ul>
+    <hr>
+  </div>
+  <div class="w3-container">
+    <h5 class="w3-opacity"><b>Physics Teacher & Head of Outdoor Pursuits /  Queen Elizabeth Grammar School, Penrith, UK</b></h5>
+    <h6 class="w3-text-indigo"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sept 1999 - Sept 2006</h6>
+    <p>Taught general science to 12-14 year olds and physics to 14-18 year olds. Students achieved excellent science results, well above national average.  Head of outdoor education department, providing learning experiences outside the classroom setting.</p>
+  </div>
+</div>  
+
+<div class="w3-row w3-center w3-dark-grey w3-padding-16">
+  <div class="w3-third w3-section">
+  <span class="w3-xlarge">  
+    Communication
+  </div>
+  <div class="w3-third w3-section">
+    <span class="w3-xlarge">  
+    Enthusiasm
+  </div>
+  <div class="w3-third w3-section">
+    <span class="w3-xlarge">  
+    Collaboration
+  </div>
+</div>
+
+<!-- Third Parallax Image with Work Experience Text -->
+<div class="bgimg-3 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+    <span class="w3-xxlarge w3-text-white w3-wide">EDUCATION</span>
+  </div>
+</div>
+<!-- Container (Education Section) -->
+<div class="w3-content w3-container w3-padding-64" id="education">
+  <h3 class="w3-center">EDUCATION</h3>
+  <div class="w3-container">
+    <h5 class="w3-opacity"><b>PhD Experimental High Energy Physics / Lancaster University, UK</b></h5>
+    <h6 class="w3-text-indigo"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2006 - 2010</h6>
+    <hr>
+  </div>
+  <div class="w3-container">
+    <h5 class="w3-opacity"><b>Post Graduate Certificate of Education / Bangor University, UK </b></h5>
+    <h6 class="w3-text-indigo"><i class="fa fa-calendar fa-fw w3-margin-right"></i>1995 - 1996</h6>
+    <hr>
+  </div>
+  <div class="w3-container">
+    <h5 class="w3-opacity"><b>BSc Pure and Applied Physics 2.1 (HONS) / Birmingham University, UK </b></h5>
+    <h6 class="w3-text-indigo"><i class="fa fa-calendar fa-fw w3-margin-right"></i>1987 - 1990</h6>
+  </div>
+</div>
+  
+
+<!-- Fourth Parallax Image with Work Experience Text -->
+<div class="bgimg-4 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+    <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
+  </div>
+</div>
+
+<!-- Container (Contact Section) -->
+<div class="w3-content w3-container w3-padding-64" id="contact">
+  <h3 class="w3-center">CONTACT ME</h3>
+  <p class="w3-center"><em>Please get in touch!</em></p>
+
+  <div class="w3-row w3-padding-32 w3-section">
+    <div class="w3-col m4 w3-container">
+      <a href="https://home.cern/" target="_blank"><img src="images/CERN-logo_outline.jpeg" style="width:30%" class="w3-hover-opacity" alt="CERN logo"> 
+    </div>
+    <div class="w3-col m8 w3-panel">
+      <div class="w3-large w3-margin-bottom">
+<!--        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> CERN, Geneva<br>
+        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: +00 <br> -->
+        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: cheatham@datamentor.digital<br>
+      <!--      <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or send me a message.</p> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <div class="w3-xlarge w3-section">
+    <p>Find me on LinkedIn:
+      &nbsp;
+    <a href="http://www.linkedin.com/in/susan-cheatham-18a96483?trk=hp-identity-name" target="_blank">
+      <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </a>
+    </p>
+  </div>
+</footer>
+ 
+<script>
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+// Change style of navbar on scroll
+window.onscroll = function() {myFunction()};
+function myFunction() {
+    var navbar = document.getElementById("myNavbar");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        navbar.className = "w3-bar" + " w3-card-2" + " w3-animate-top" + " w3-white";
+    } else {
+        navbar.className = navbar.className.replace(" w3-card-2 w3-animate-top w3-white", "");
+    }
+}
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+
+</body>
+</html>
