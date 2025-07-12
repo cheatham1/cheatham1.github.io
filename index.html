@@ -1,4 +1,4 @@
-<!DOCTYPAE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -321,7 +321,7 @@
 	
 	/* Mobile responsive */
 	@media (max-width: 768px) {
-	.hover-image,  .hover-image-left{
+	.hover-image, .hover-image-left {
         position: fixed;
         top: 50%;
         left: 50%;
@@ -332,7 +332,8 @@
 	}
 	
 	.hover-container:hover .hover-image,
-	.hover-container:hover .hover-image-left{
+	.hover-container:hover .hover-image-left
+	{
         left: 50%;
         right: auto;
         transform: translate(-50%, -50%);
@@ -487,7 +488,7 @@
         </div>
     </div>
 
-
+    
     <!-- About Section -->
     <div class="content container padding-64" id="about">
         <h3 class="center">Dr SUE CHEATHAM</h3>
@@ -784,7 +785,7 @@
 </div>
 
 
-<!-- LIGHTBOX HTML BEFORE THE CLOSING </body> TAG -->
+<!-- LIGHTBOX HTML -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <div class="lightbox-content" onclick="event.stopPropagation()">
         <div class="lightbox-close" onclick="closeLightbox()">×</div>
@@ -792,26 +793,47 @@
   </div>
 </div>
 
-<!-- JAVASCRIPT BEFORE THE CLOSING </body> TAG -->
+
 <script>
-// Lightbox functionality                                                                                        
+// Lightbox functionality
 function openLightbox(src) {
     document.getElementById('lightboxImg').src = src;
     document.getElementById('lightbox').classList.add('active');
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling                                     
+    document.body.style.overflow = 'hidden';
 }
 
 function closeLightbox() {
     document.getElementById('lightbox').classList.remove('active');
-    document.body.style.overflow = 'auto'; // Restore scrolling                                                  
+    document.body.style.overflow = 'auto';
 }
 
-// Close lightbox with Escape key                                                                                
+// Close lightbox with Escape key
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeLightbox();
     }
 });
+
+// Mobile menu toggle function
+function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("show") == -1) {
+        x.className += " show";
+    } else {
+        x.className = x.className.replace(" show", "");
+    }
+}
+
+// Change navbar style on scroll
+window.onscroll = function() {myFunction()};
+function myFunction() {
+    var navbar = document.getElementById("myNavbar");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        navbar.className = "bar" + " card-2" + " animate-top" + " white";
+    } else {
+        navbar.className = navbar.className.replace(" card-2 animate-top white", "");
+    }
+}
 </script>
 
 
