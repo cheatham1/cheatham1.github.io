@@ -54,7 +54,7 @@
         .row:after {
             content: "";
             display: table;
-            clear: both;
+	    clear: both;
         }
 
         .col {
@@ -77,7 +77,7 @@
         .col.s12 { width: 100%; }
 
         @media (min-width: 601px) {
-            .col.m1 { width: 8.33333%; }
+	    .col.m1 { width: 8.33333%; }
             .col.m2 { width: 16.66666%; }
             .col.m3 { width: 25%; }
             .col.m4 { width: 33.33333%; }
@@ -158,8 +158,8 @@
             outline: 0;
         }
 
-        .bar-block .bar-item {
-            width: 100%;
+        .bar-block .bar-item{
+	    width: 100%;
             display: block;
             padding: 8px 16px;
             text-align: left;
@@ -190,7 +190,7 @@
         .hover-opacity-off:hover { opacity: 1; }
 
         /* Parallax sections */
-        .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
+        .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5 {
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
@@ -213,6 +213,11 @@
         }
 
         .bgimg-4 {
+            background-image: url("images/Bikes.jpg");
+            min-height: 400px;
+        }
+
+	.bgimg-5 {
             background-image: url("images/Cham.jpg");
             min-height: 400px;
         }
@@ -262,7 +267,7 @@
 
         /* Turn off parallax scrolling for tablets and phones */
         @media only screen and (max-device-width: 1024px) {
-            .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
+            .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5 {
                 background-attachment: scroll;
             }
         }
@@ -316,8 +321,7 @@
 	
 	/* Mobile responsive */
 	@media (max-width: 768px) {
-	.hover-image,
-    	.hover-image.hover-image-left {
+	.hover-image {
         position: fixed;
         top: 50%;
         left: 50%;
@@ -326,17 +330,132 @@
         width: 90vw;
         max-width: 300px;
 	}
-
-	.hover-container:hover .hover-image,
-    	.hover-container:hover .hover-image.hover-image-left {
+	
+	.hover-container:hover .hover-image {
         left: 50%;
         right: auto;
         transform: translate(-50%, -50%);
 	}
 	}
 
+	/* Grid Art Gallery with Lightbox */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
 
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+	.gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-size: 14px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+	/* Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .lightbox img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+	.lightbox-close {
+	position: absolute;
+	top: -40px;
+	right: 0;
+	color: white;
+	font-size: 30px;
+	cursor: pointer;
+	background: rgba(0,0,0,0.5);
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background 0.3s ease;
+	}
+	
+	.lightbox-close:hover {
+	background: rgba(0,0,0,0.8);
+	}
+	
+	/* Mobile Responsive */
+	@media (max-width: 480px) {
+	.gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+	}
+	
+	.gallery-overlay {
+        font-size: 12px;
+        padding: 5px;
+	}
+	}
+	
     </style>
 </head>
 <body>
@@ -350,6 +469,7 @@
             <a href="#about" class="bar-item button hide-small"><i class="fa fa-user"></i> ABOUT</a>
             <a href="#work-experience" class="bar-item button hide-small"><i class="fa fa-th"></i> DATA MENTOR</a>
             <a href="#education" class="bar-item button hide-small"><i class="fa fa-laptop"></i> EDUCATION</a>
+	    <a href="#artwork" class="bar-item button hide-small"><i class="fa fa-laptop"></i> ARTWORK</a>
             <a href="#contact" class="bar-item button hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
             <a href="#" class="bar-item button hide-small right hover-red">
                 <i class="fa fa-search"></i>
@@ -361,6 +481,7 @@
             <a href="#about" class="bar-item button" onclick="toggleFunction()">ABOUT</a>
             <a href="#work-experience" class="bar-item button" onclick="toggleFunction()">WORK EXPERIENCE</a>
             <a href="#education" class="bar-item button" onclick="toggleFunction()">EDUCATION</a>
+	    <a href="#artwork" class="bar-item button" onclick="toggleFunction()">ARTWORK</a>
             <a href="#contact" class="bar-item button" onclick="toggleFunction()">CONTACT</a>
         </div>
     </div>
@@ -560,7 +681,7 @@
         </div>
     </div>
 
-    <div class="content container padding-64" id="education">
+    <div class="content container padding-64" id="education"> <!--  -->
         <h3 class="center">EDUCATION</h3>
         <p class="center"><em>“Real education should educate us out of self into something far finer; into a selflessness which links us with all humanity.” —Nancy Astor</em></p>
         
@@ -587,6 +708,61 @@
 	</div>
     </div>
 
+
+    <!-- Artwork Parallax--> 
+    <div class="bgimg-5 display-container opacity-min">
+      <div class="display-middle">
+        <span class="xxlarge text-white wide">ARTWORK</span>
+      </div>
+    </div>
+    
+    <div class="content container padding-64" id="artwork">
+      <h3 class="center">CREATIVE EXPLORATIONS</h3>
+      <p class="center"><em>"Where science meets art - visualizing with oils"</em> </p>
+      
+
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox('images/artwork1.jpg')">
+          <img src="images/artwork1.jpg" alt="Artwork 1">
+          <div class="gallery-overlay">
+            <div>
+              <strong>Swiss Aiguilles Rouge</strong><br>
+                <!--<small>Medium • Year</small>-->
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('images/artwork2.jpg')">
+          <img src="images/artwork2.jpg" alt="Artwork 2">
+          <div class="gallery-overlay">
+            <div>
+              <strong>Plastic waste</strong><br>
+            </div>
+          </div>
+        </div>
+
+	<div class="gallery-item" onclick="openLightbox('images/artwork3.jpg')">
+          <img src="images/artwork3.jpg" alt="Artwork 3">
+          <div class="gallery-overlay">
+            <div>
+              <strong>Mountains</strong><br>
+            </div>
+          </div>
+	</div>
+
+	<div class="gallery-item" onclick="openLightbox('images/artwork4.jpg')">
+          <img src="images/artwork4.jpg" alt="Artwork 4">
+          <div class="gallery-overlay">
+            <div>
+              <strong>Mountain Refuge</strong><br>
+            </div>
+          </div>
+        </div>
+
+	
+      </div>
+    </div>
+    
     <!-- Contact Section -->
     <div class="bgimg-4 display-container opacity-min">
       <div class="display-middle">
@@ -594,29 +770,62 @@
       </div>
     </div>
 
+    <div class="content container padding-64" id="contact">
+      <h3 class="center">CONTACT ME</h3>
+      <p class="center"><em>"Ready to turn your data chaos into clarity? Let's chat!"</em> 💬</p>
+      
+      <p class="center">Drop me a line if you:</p>
+      <ul style="text-align: center; margin-center: 20px; list-style-type: none;">
+        <li>🤔 Have data that's giving you a headache</li>
+        <li>🚀 Want to implement AI but don't know where to start</li>
+        <li>📊 Need someone to translate your data into actionable insights</li>
+        <li>☕ Just want to chat about physics, data or mountains!</li>
+      </ul>
+      
+      <p  class="center"><strong>cheatham@datamentor.digital</strong></p>
+      
+      
+      <div class="center padding-32">
+	<p>Proud CERN Alumni</p>
+	<a href="https://home.cern/" target="_blank">
+          <img src="images/CERN-logo_outline.jpeg" style="width:10%; margin: 16px;" class="hover-opacity" alt="CERN logo">
+	</a>
+      </div>
+    </div>
 
-	<div class="content container padding-64" id="contact">
-	  <h3 class="center">CONTACT ME</h3>
-	  <p class="center"><em>"Ready to turn your data chaos into clarity? Let's chat!"</em> 💬</p>
-	  
-	  <p class="center">Drop me a line if you:</p>
-	  <ul style="text-align: center; margin-center: 20px; list-style-type: none;">
-            <li>🤔 Have data that's giving you a headache</li>
-            <li>🚀 Want to implement AI but don't know where to start</li>
-            <li>📊 Need someone to translate your data into actionable insights</li>
-            <li>☕ Just want to chat about physics, data or mountains!</li>
-	  </ul>
-	  
-	  <p  class="center"><strong>cheatham@datamentor.digital</strong></p>
-
-	
-	  <div class="center padding-32">
-	    <p>Proud CERN Alumni</p>
-	    <a href="https://home.cern/" target="_blank">
-              <img src="images/CERN-logo_outline.jpeg" style="width:10%; margin: 16px;" class="hover-opacity" alt="CERN logo">
-	    </a>
-	  </div>
-	</div>
 </div>
-	
 
+
+<!-- LIGHTBOX HTML BEFORE THE CLOSING </body> TAG -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+        <div class="lightbox-close" onclick="closeLightbox()">×</div>
+        <img id="lightboxImg" src="" alt="Artwork">
+  </div>
+</div>
+
+<!-- JAVASCRIPT BEFORE THE CLOSING </body> TAG -->
+<script>
+// Lightbox functionality                                                                                        
+function openLightbox(src) {
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling                                     
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = 'auto'; // Restore scrolling                                                  
+}
+
+// Close lightbox with Escape key                                                                                
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeLightbox();
+    }
+});
+</script>
+
+
+</body>
+</html>
