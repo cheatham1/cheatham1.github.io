@@ -266,6 +266,58 @@
                 background-attachment: scroll;
             }
         }
+
+
+	/* Base hover container */
+	.hover-container {
+	position: relative;
+	display: block;
+	width: 100%;
+	margin: 20px 0;
+	}
+	
+	/* Base hover image - DEFAULT RIGHT SIDE */
+	.hover-image {
+	position: absolute;
+	top: 0;
+	right: -280px;
+	width: 260px;
+	background: white;
+	border: 2px solid #ddd;
+	border-radius: 8px;
+	box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.4s ease;
+	z-index: 1000;
+	padding: 15px;
+	pointer-events: none;
+	}
+	
+	/* Show on hover - RIGHT SIDE */
+	.hover-container:hover .hover-image {
+	opacity: 1;
+	visibility: visible;
+	right: -300px;
+	}
+	
+	/* LEFT SIDE VARIANT */
+	.hover-image.hover-image-left {
+	right: auto;
+	left: -280px;
+	}
+	
+	.hover-container:hover .hover-image.hover-image-left {
+	right: auto;
+	left: -300px;
+	}
+	
+	
+	
+
+
+
+
     </style>
 </head>
 <body>
@@ -327,7 +379,7 @@
                 
                 <p>Curiosity and clear communication are everything.</p>
                 
-                <p>When I'm not teaching machines to learn or humans to understand data, you'll find me exploring mountains, learning Italian or in the middle of some crazy oil painting.</p>
+                <p>When I'm not teaching machines to learn or humans to understand data, you'll find me exploring mountains, learning Italian or oil painting.</p>
             </div>
 
         </div>
@@ -335,88 +387,151 @@
 
     <!-- Work Experience Section -->
     <div class="bgimg-2 display-container opacity-min">
-        <div class="display-middle">
-            <span class="xxlarge text-white wide">DATA MENTOR</span>
-        </div>
+      <div class="display-middle">
+        <span class="xxlarge text-white wide">DATA MENTOR</span>
+      </div>
     </div>
 
     <div class="content container padding-64" id="work-experience">
-        <h3 class="center">DATA MENTOR</h3>
-        <p class="center"><em>"The core advantage of data is that it tells you something about the world that you
-didn't know before." Hilary Mason</em></p>
+      <h3 class="center">DATA MENTOR</h3>
+      <p class="center"><em>"The core advantage of data is that it tells you something about the world that you
+	  didn't know before." Hilary Mason</em></p>
+      
+      <div class="container">
+	
+        <p>An independent data science and AI consultant, with clients ranging from tiny startups to global organizations.</p>
+        
+        <!--<h4 style="color: #2196F3;">Client Success Stories (The Greatest Hits)</h4>-->
+	
+        <div class="row">
+          <div class="col l6 padding">
 
-        <div class="container">
+	    <div class="hover-container">
+              <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #4CAF50;">
+                <h6><strong>🛡️ UNHCR</strong></h6>
+                <p class="small">Applied AI to legal analysis for refugees and asylum seekers - researching the efficacy and feasibility of applying AI to legal analysis.</p>
+              </div>
+	      <div class="hover-image"> 
+		<img src="images/unhcr.jpg" alt="Project" style="width: 100%; border-radius: 4px;">
+		<p style="margin: 10px 0 0 0; font-size: 12px; color: #666; text-align: center;">Retrieval Augmented Generation and Prompt Development</p>
+	      </div>
+	    </div>
+	    
+	    <div class="hover-container">
+              <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #2196F3;">
+		<h6><strong>🏥 WHO</strong></h6>
+		<p class="small">Enhanced vaccine safety analysis - using advanced NLP and unsupervised learning techniques, delivering greater understanding of global health issues.</p>
+              </div>
+	      <div class="hover-image"> 
+		<img src="images/who-project.jpg" alt="Project" style="width: 100%; border-radius: 4px;">
+		<p style="margin: 10px 0 0 0; font-size: 12px; color: #666; text-align: center;">Studying social media posts</p>
+	      </div>
+	    </div>
+	    
+	    <div class="hover-container">  
+              <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #FF9800;">
+		<h6><strong>♻️  IUCN</strong></h6>
+		<p class="small">AI-powered plastic waste impact analysis for Small Island Developing States - extracting critical insights on plastic waste.</p>
+              </div>
+	      <div class="hover-image"> 
+		<img src="images/iucn.jpg" alt="Project" style="width: 100%; border-radius: 4px;">
+		<p style="margin: 10px 0 0 0; font-size: 12px; color: #666; text-align: center;">There is a clear need for international cooperation to address the plastic pollution problem</p>
+	      </div>
+	    </div>
 
-            <p>As an independent data science and AI consultant, with clients ranging from tiny startups to global organizations, I always manage to find the story the data is trying to tell.</p>
-            
-              <!--<h4 style="color: #2196F3;">Client Success Stories (The Greatest Hits)</h4>-->
+	    <div class="hover-container">
+	      <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #000080;">                                      
+		<h6><strong>🌍 ITC</strong></h6>                                                                                                                       
+		<p class="small">Performance intelligence - developing data visualisations and Tableau dashboards to communicate global trade data, leveraging data sources derived from REST APIs.</p>       
+              </div> 
+	      <div class="hover-image"> 
+		<img src="images/itc.jpg" alt="Project" style="width: 100%; border-radius: 4px;">
+		<p style="margin: 10px 0 0 0; font-size: 12px; color: #666; text-align: center;">Tableau dashboards</p>
+	      </div>
+	    </div>
 
-            <div class="row">
-                <div class="col l6 padding">
-                    <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #4CAF50;">
-                        <h6><strong>🛡️ UNHCR</strong></h6>
-                        <p class="small">Applied AI to legal analysis for refugees and asylum seekers - researching the efficacy and feasibility of applying AI to legal analysis.</p>
-                    </div>
-                    
-                    <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #2196F3;">
-                        <h6><strong>🏥 WHO</strong></h6>
-                        <p class="small">Enhanced vaccine safety analysis - using advanced NLP and unsupervised learning techniques, delivering greater understanding of global health issues.</p>
-                    </div>
-                    
-                    <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #FF9800;">
-                        <h6><strong>♻️  IUCN</strong></h6>
-                        <p class="small">AI-powered plastic waste impact analysis for Small Island Developing States - extracting critical insights on plastic waste.</p>
-                    </div>
+	    <div class="hover-container">
+              <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #4CAF50;">
+		<h6><strong>🌉 Bridges to Development NGO</strong></h6>
+		<p class="small">Data driven gap analysis - creating visualisations to share data insights, optimizing vaccine implementation strategies in low and lower-middle-income countries.</p>
+		<div class="hover-image"> 
+		  <img src="images/bridges.jpg" alt="Project" style="width: 100%; border-radius: 4px;">
+		  <p style="margin: 10px 0 0 0; font-size: 12px; color: #666; text-align: center;">Collaboration using WHO and GAVI data</p>
+		</div>
+	      </div>
+	    </div>
+	  </div>
 
-		    <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #000080;">                                       
-                        <h6><strong>🌍 ITC</strong></h6>                                                                                                                       
-                        <p class="small">Performance intelligence - developing data visualisations and Tableau dashboards to communicate global trade data, leveraging data sources derived from REST APIs.</p>       
-                    </div> 
-		    
-                    <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #4CAF50;">
-                        <h6><strong>🌉 Bridges to Development NGO</strong></h6>
-                        <p class="small">Data driven gap analysis - creating visualisations to share data insights, optimizing vaccine implementation strategies in low and lower-middle-income countries.</p>
-                    </div>
-                </div>
-                
-                <div class="col l6 padding">
-                    <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #8BC34A;">
-                        <h6><strong>🥃 Distillery Saint Gervais Mont Blanc</strong></h6>
-                        <p class="small">Achieved 100% turnaround for a local distillery - proving that data science goes well with good spirits!</p>
-                    </div>
+          <div class="col l6 padding">
 
-		    <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #9C27B0;">
-                        <h6><strong>👶 OPBG Children Hospital</strong></h6>
-                    <p class="small">Improved social media health monitoring by 10%+ with multilingual LLMs - through fine-tuning of multi-lingual Large Language Models.</p>
-		    </div>                    
-
-                    <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #FF5722;">
-                        <h6><strong>🎓 Webster University</strong></h6>
-                        <p class="small">Teaching "Database Applications" with a 4.63/5.0 student rating across engagement, organisation, expertise and rapport</p>
-                    </div>
-                    
-                    <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #E91E63;">
-                        <h6><strong>👩‍💻 AllWomen</strong></h6>
-                        <p class="small">A knowledge-sharing, social and professional global community network for women. AI training including coding and ethics - because the future of AI should include everyone.</p>
-                    </div>
-                    
-                    <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #673AB7;">
-                        <h6><strong>🏛️ EPFL</strong></h6>
-                        <p class="small">"Story-telling through data" presentation at Eurotech Summer School, Open Science In Practice - because every dataset has a story</p>
-                    </div>
-                </div>
+	    <div class="hover-container">
+	      <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #8BC34A;">
+		<h6><strong>🥃 Distillery Saint Gervais Mont Blanc</strong></h6>
+		<p class="small">Achieved 100% turnaround for a local distillery - proving that data science goes well with good spirits!</p>
+	      </div>
+	      <div class="hover-image  hover-image-left"> 
+		<img src="images/distillery.jpg" alt="Project" style="width: 100%; border-radius: 4px;">
+		<p style="margin: 10px 0 0 0; font-size: 12px; color: #666; text-align: center;">The highest distillery in Western Europe, producing hand crafted gin and whisky</p>
+	      </div>
+	    </div>
+	    
+	    <div class="hover-container">
+	      <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #9C27B0;">
+		<h6><strong>👶 OPBG Children Hospital</strong></h6>
+		<p class="small">Improved social media health monitoring by 10%+ with multilingual LLMs - through fine-tuning of multi-lingual Large Language Models.</p>
+	      </div>
+              <div class="hover-image  hover-image-left"> 
+		<img src="images/opbg.jpg" alt="Project" style="width: 100%; border-radius: 4px;">
+		<p style="margin: 10px 0 0 0; font-size: 12px; color: #666; text-align: center;">Development and validation of a machine learning model</p>
+	      </div>
+	    </div>
+	    
+	    <div class="hover-container  hover-image-left">
+              <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #FF5722;">
+                <h6><strong>🎓 Webster University</strong></h6>
+                <p class="small">Teaching "Database Applications" with a 4.63/5.0 student rating across engagement, organisation, expertise and rapport</p>
+              </div>
+	    <div class="hover-image  hover-image-left"> 
+	      <img src="images/webster.jpg" alt="Project" style="width: 100%; border-radius: 4px;">
+	      <p style="margin: 10px 0 0 0; font-size: 12px; color: #666; text-align: center;">Webster Geneva Campus</p>
+	    </div>
+	  </div>
+	
+	  <div class="hover-container  hover-image-left">
+            <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #E91E63;">
+              <h6><strong>👩‍💻 AllWomen</strong></h6>
+              <p class="small">A knowledge-sharing, social and professional global community network for women. AI training including coding and ethics - because the future of AI should include everyone.</p>
             </div>
+	    <div class="hover-image hover-image-left"> 
+	      <img src="images/allwomen.jpg" alt="Project" style="width: 100%; border-radius: 4px;">
+	      <p style="margin: 10px 0 0 0; font-size: 12px; color: #666; text-align: center;">A real pleasure to share my knowledge and insights about AI to such an enthusiastic group of women</p>
+	    </div>
+	  </div>
+	  
+	  <div class="hover-container">
+            <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #673AB7;">
+              <h6><strong>🏛️ EPFL</strong></h6>
+              <p class="small">"Story-telling through data" presentation at Eurotech Summer School, Open Science In Practice - because every dataset has a story</p>
+            </div>
+	    <div class="hover-image hover-image-left"> 
+	      <img src="images/epfl.jpg" alt="Project" style="width: 100%; border-radius: 4px;">
+	      <p style="margin: 10px 0 0 0; font-size: 12px; color: #666; text-align: center;">What makes a good data visualisation ?</p>
+	    </div>
+	  </div>
         </div>
-
-	<p class="center"><strong>Find me on LinkedIn:</strong>
-	  &nbsp;
-	  <a href="http://www.linkedin.com/in/susan-cheatham-18a96483?trk=hp-identity-name" target="_blank">
-	    <i class="fa fa-linkedin hover-opacity"></i>
-	  </a>
-	</p>
+      </div>
+ 
+      
+      <p class="center"><strong>Find me on LinkedIn:</strong>
+	&nbsp;
+	<a href="http://www.linkedin.com/in/susan-cheatham-18a96483?trk=hp-identity-name" target="_blank">
+	  <i class="fa fa-linkedin hover-opacity"></i>
+	</a>
+      </p>
 	
 
 	
+      </div>
     </div>
 
     <!-- Education Section -->
