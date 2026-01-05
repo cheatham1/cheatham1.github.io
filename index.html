@@ -1,850 +1,521 @@
-<!DOCTYPE html>
+<!DOCTYPAE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dr Sue Cheatham</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style>
-    
-    /* Base styles */
-    html {
-        box-sizing: border-box;
-    }
-    
-    *, *:before, *:after {
-        box-sizing: inherit;
-    }
-    
-    html, body {
-        font-family: Verdana, sans-serif;
-        font-size: 15px;
-        line-height: 1.5;
-        margin: 0;
-        padding: 0;
-    }
-    
-    body, h1, h2, h3, h4, h5, h6 {
-        font-family: "Lato", sans-serif;
-    }
-    
-    body {
-        height: 100%;
-        color: #777;
-        line-height: 1.2;
-    }
-    
-    h1, h2, h3, h4, h5, h6 {
-        font-weight: 400;
-        margin: 10px 0;
-    }
-    
-    h1 { font-size: 36px; }
-    h2 { font-size: 30px; }
-    h3 { font-size: 24px; }
-    h4 { font-size: 20px; }
-    h5 { font-size: 18px; }
-    h6 { font-size: 16px; }
-    
-    /* Layout */
-    .center { text-align: center !important; }
-    .container, .panel { padding: 0.01em 16px; }
-    .content { margin-left: auto; margin-right: auto; max-width: 1140px; }
-    
-    .row:after {
-        content: "";
-        display: table;
-	clear: both;
-    }
-    
-    .col {
-        float: left;
-        width: 100%;
-    }
-    
-    /* Grid system */
-    .col.s1 { width: 8.33333%; }
-    .col.s2 { width: 16.66666%; }
-    .col.s3 { width: 25%; }
-    .col.s4 { width: 33.33333%; }
-    .col.s5 { width: 41.66666%; }
-    .col.s6 { width: 50%; }
-    .col.s7 { width: 58.33333%; }
-    .col.s8 { width: 66.66666%; }
-    .col.s9 { width: 75%; }
-    .col.s10 { width: 83.33333%; }
-    .col.s11 { width: 91.66666%; }
-    .col.s12 { width: 100%; }
-    
-    @media (min-width: 601px) {
-	.col.m1 { width: 8.33333%; }
-        .col.m2 { width: 16.66666%; }
-        .col.m3 { width: 25%; }
-        .col.m4 { width: 33.33333%; }
-        .col.m5 { width: 41.66666%; }
-        .col.m6 { width: 50%; }
-        .col.m7 { width: 58.33333%; }
-        .col.m8 { width: 66.66666%; }
-        .col.m9 { width: 75%; }
-        .col.m10 { width: 83.33333%; }
-        .col.m11 { width: 91.66666%; }
-        .col.m12 { width: 100%; }
-    }
-    
-    @media (min-width: 993px) {
-        .col.l1 { width: 8.33333%; }
-        .col.l2 { width: 16.66666%; }
-        .col.l3 { width: 25%; }
-        .col.l4 { width: 33.33333%; }
-        .col.l5 { width: 41.66666%; }
-        .col.l6 { width: 50%; }
-        .col.l7 { width: 58.33333%; }
-        .col.l8 { width: 66.66666%; }
-        .col.l9 { width: 75%; }
-        .col.l10 { width: 83.33333%; }
-        .col.l11 { width: 91.66666%; }
-        .col.l12 { width: 100%; }
-    }
-    
-    .third { width: 33.33333%; }
-    
-    /* Spacing */
-    .padding { padding: 8px 16px !important; }
-    .padding-16 { padding-top: 16px !important; padding-bottom: 16px !important; }
-    .padding-32 { padding-top: 32px !important; padding-bottom: 32px !important; }
-    .padding-64 { padding-top: 64px !important; padding-bottom: 64px !important; }
-    .padding-large { padding: 12px 24px !important; }
-    .padding-medium { padding: 8px 16px !important; }
-    .margin { margin: 16px !important; }
-    .margin-right { margin-right: 16px !important; }
-    .margin-bottom { margin-bottom: 16px !important; }
-    .section { margin-top: 16px !important; margin-bottom: 16px !important; }
-    
-    /* Typography */
-    .large { font-size: 18px !important; }
-    .xlarge { font-size: 24px !important; }
-    .xxlarge { font-size: 36px !important; }
-    .medium { font-size: 15px !important; }
-    .small { font-size: 12px !important; }
-    .wide { letter-spacing: 10px; }
-    
-    /* Colors */
-    .white { color: #000 !important; background-color: #fff !important; }
-    .black { color: #fff !important; background-color: #000 !important; }
-    .dark-grey { color: #fff !important; background-color: #616161 !important; }
-    .text-white { color: #fff !important; }
-    .opacity { opacity: 0.60; }
-    .opacity-min { opacity: 0.75; }
-    
-    /* Navigation */
-    .top {
-        position: fixed !important;
-        width: 100%;
-        top: 0;
-        z-index: 1;
-    }
-    
-    .bar {
-        width: 100%;
-        overflow: hidden;
-    }
-    
-    .bar .bar-item {
-        padding: 8px 16px;
-        float: left;
-        width: auto;
-        border: none;
-        display: block;
-        outline: 0;
-    }
-    
-    .bar-block .bar-item{
-	width: 100%;
-        display: block;
-        padding: 8px 16px;
-        text-align: left;
-        border: none;
-        white-space: normal;
-        float: none;
-        outline: 0;
-    }
-    
-    .button {
-        border: none;
-        display: inline-block;
-        padding: 8px 16px;
-        vertical-align: middle;
-        overflow: hidden;
-        text-decoration: none;
-        color: inherit;
-        background-color: inherit;
-        text-align: center;
-        cursor: pointer;
-        white-space: nowrap;
-    }
-    
-    .button:hover { color: #000 !important; background-color: #ccc !important; }
-    .hover-black:hover { color: #fff !important; background-color: #000 !important; }
-    .hover-red:hover { color: #fff !important; background-color: #f44336 !important; }
-    .hover-opacity:hover { opacity: 0.60; }
-    .hover-opacity-off:hover { opacity: 1; }
-    
-    /* Parallax sections */
-    .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5 {
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    
-    .bgimg-1 {
-        background-image: url("images/Businesscard.png");
-        min-height: 100%;
-    }
-    
-    .bgimg-2 {
-        background-image: url("images/mural.png");
-        min-height: 400px;
-    }
-    
-    .bgimg-3 {
-        background-image: url("images/magnet.png");
-        min-height: 400px;
-    }
-    
-    .bgimg-4 {
-        background-image: url("images/Bikes.jpg");
-        min-height: 400px;
-    }
-    
-    .bgimg-5 {
-        background-image: url("images/Cham.jpg");
-        min-height: 400px;
-    }
-    
-    .display-container { position: relative; }
-    
-    .display-middle {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-    }
-    
-    /* Images */
-    .image { max-width: 100%; height: auto; }
-    img { vertical-align: middle; }
-    .round { border-radius: 4px; }
-    
-    /* Effects */
-    .card-2 { box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
-    
-    .animate-opacity { animation: opac 0.8s; }
-    @keyframes opac { from { opacity: 0; } to { opacity: 1; } }
-    
-    .animate-top { position: relative; animation: animatetop 0.4s; }
-    @keyframes animatetop { from { top: -300px; opacity: 0; } to { top: 0; opacity: 1; } }
-    
-    /* Responsive */
-    .hide { display: none !important; }
-    .show { display: block !important; }
-    .block { display: block; width: 100%; }
-    
-    @media (max-width: 600px) {
-        .hide-small { display: none !important; }
-    }
-    
-    @media (min-width: 601px) and (max-width: 992px) {
-        .hide-medium { display: none !important; }
-    }
-    
-    @media (min-width: 993px) {
-        .hide-large { display: none !important; }
-    }
-    
-    .right { float: right !important; }
-    
-    /* Turn off parallax scrolling for tablets and phones */
-    @media only screen and (max-device-width: 1024px) {
-        .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5 {
-            background-attachment: scroll;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dr Sue Cheatham</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Base styles */
+        html {
+            box-sizing: border-box;
         }
-    }
-    
-    
-    /* Base hover container */
-    .hover-container {
-	position: relative;
-	display: block;
-	width: 100%;
-	margin: 20px 0;
-    }
-    
-    /* Base hover image - DEFAULT RIGHT SIDE */
-    .hover-image {
-	position: absolute;
-	top: 0;
-	right: -280px;
-	width: 260px;
-	background: white;
-	border: 2px solid #ddd;
-	border-radius: 8px;
-	box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-	opacity: 0;
-	visibility: hidden;
-	transition: all 0.4s ease;
-	z-index: 1000;
-	padding: 15px;
-	pointer-events: none;
-    }
-	
-    /* Show on hover - RIGHT SIDE */
-    .hover-container:hover .hover-image {
-	opacity: 1;
-	visibility: visible;
-	right: -300px;
-    }
-    
-    /* LEFT SIDE VARIANT */
-    .hover-image.hover-image-left {
-	right: auto;
-	left: -280px;
-    }
-    
-    .hover-container:hover .hover-image.hover-image-left {
-	right: auto;
-	left: -300px;
-    }
-	
-	
-	
-    /* Mobile responsive */
-    @media (max-width: 768px) {
-	.hover-image, .hover-image-left {
-            position: fixed;
+
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
+        html, body {
+            font-family: Verdana, sans-serif;
+            font-size: 15px;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+        }
+
+        body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Lato", sans-serif;
+        }
+
+        body {
+            height: 100%;
+            color: #777;
+            line-height: 1.2;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 400;
+            margin: 10px 0;
+        }
+
+        h1 { font-size: 36px; }
+        h2 { font-size: 30px; }
+        h3 { font-size: 24px; }
+        h4 { font-size: 20px; }
+        h5 { font-size: 18px; }
+        h6 { font-size: 16px; }
+
+        /* Layout */
+        .center { text-align: center !important; }
+        .container, .panel { padding: 0.01em 16px; }
+        .content { margin-left: auto; margin-right: auto; max-width: 1140px; }
+        
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .col {
+            float: left;
+            width: 100%;
+        }
+
+        /* Grid system */
+        .col.s1 { width: 8.33333%; }
+        .col.s2 { width: 16.66666%; }
+        .col.s3 { width: 25%; }
+        .col.s4 { width: 33.33333%; }
+        .col.s5 { width: 41.66666%; }
+        .col.s6 { width: 50%; }
+        .col.s7 { width: 58.33333%; }
+        .col.s8 { width: 66.66666%; }
+        .col.s9 { width: 75%; }
+        .col.s10 { width: 83.33333%; }
+        .col.s11 { width: 91.66666%; }
+        .col.s12 { width: 100%; }
+
+        @media (min-width: 601px) {
+            .col.m1 { width: 8.33333%; }
+            .col.m2 { width: 16.66666%; }
+            .col.m3 { width: 25%; }
+            .col.m4 { width: 33.33333%; }
+            .col.m5 { width: 41.66666%; }
+            .col.m6 { width: 50%; }
+            .col.m7 { width: 58.33333%; }
+            .col.m8 { width: 66.66666%; }
+            .col.m9 { width: 75%; }
+            .col.m10 { width: 83.33333%; }
+            .col.m11 { width: 91.66666%; }
+            .col.m12 { width: 100%; }
+        }
+
+        @media (min-width: 993px) {
+            .col.l1 { width: 8.33333%; }
+            .col.l2 { width: 16.66666%; }
+            .col.l3 { width: 25%; }
+            .col.l4 { width: 33.33333%; }
+            .col.l5 { width: 41.66666%; }
+            .col.l6 { width: 50%; }
+            .col.l7 { width: 58.33333%; }
+            .col.l8 { width: 66.66666%; }
+            .col.l9 { width: 75%; }
+            .col.l10 { width: 83.33333%; }
+            .col.l11 { width: 91.66666%; }
+            .col.l12 { width: 100%; }
+        }
+
+        .third { width: 33.33333%; }
+
+        /* Spacing */
+        .padding { padding: 8px 16px !important; }
+        .padding-16 { padding-top: 16px !important; padding-bottom: 16px !important; }
+        .padding-32 { padding-top: 32px !important; padding-bottom: 32px !important; }
+        .padding-64 { padding-top: 64px !important; padding-bottom: 64px !important; }
+        .padding-large { padding: 12px 24px !important; }
+        .padding-medium { padding: 8px 16px !important; }
+        .margin { margin: 16px !important; }
+        .margin-right { margin-right: 16px !important; }
+        .margin-bottom { margin-bottom: 16px !important; }
+        .section { margin-top: 16px !important; margin-bottom: 16px !important; }
+
+        /* Typography */
+        .large { font-size: 18px !important; }
+        .xlarge { font-size: 24px !important; }
+        .xxlarge { font-size: 36px !important; }
+        .medium { font-size: 15px !important; }
+        .small { font-size: 12px !important; }
+        .wide { letter-spacing: 10px; }
+
+        /* Colors */
+        .white { color: #000 !important; background-color: #fff !important; }
+        .black { color: #fff !important; background-color: #000 !important; }
+        .dark-grey { color: #fff !important; background-color: #616161 !important; }
+        .text-white { color: #fff !important; }
+        .opacity { opacity: 0.60; }
+        .opacity-min { opacity: 0.75; }
+
+        /* Navigation */
+        .top {
+            position: fixed !important;
+            width: 100%;
+            top: 0;
+            z-index: 1;
+        }
+
+        .bar {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .bar .bar-item {
+            padding: 8px 16px;
+            float: left;
+            width: auto;
+            border: none;
+            display: block;
+            outline: 0;
+        }
+
+        .bar-block .bar-item {
+            width: 100%;
+            display: block;
+            padding: 8px 16px;
+            text-align: left;
+            border: none;
+            white-space: normal;
+            float: none;
+            outline: 0;
+        }
+
+        .button {
+            border: none;
+            display: inline-block;
+            padding: 8px 16px;
+            vertical-align: middle;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            background-color: inherit;
+            text-align: center;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .button:hover { color: #000 !important; background-color: #ccc !important; }
+        .hover-black:hover { color: #fff !important; background-color: #000 !important; }
+        .hover-red:hover { color: #fff !important; background-color: #f44336 !important; }
+        .hover-opacity:hover { opacity: 0.60; }
+        .hover-opacity-off:hover { opacity: 1; }
+
+        /* Parallax sections */
+        .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .bgimg-1 {
+            background-image: url("images/Businesscard.png");
+            min-height: 100%;
+        }
+
+        .bgimg-2 {
+            background-image: url("images/mural.png");
+            min-height: 400px;
+        }
+
+        .bgimg-3 {
+            background-image: url("images/magnet.png");
+            min-height: 400px;
+        }
+
+        .bgimg-4 {
+            background-image: url("images/Cham.jpg");
+            min-height: 400px;
+        }
+
+        .display-container { position: relative; }
+
+        .display-middle {
+            position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            right: auto;
-            width: 90vw;
-            max-width: 300px;
-	}
-	
-	.hover-container:hover .hover-image,
-	.hover-container:hover .hover-image.hover-image-left {
-            left: 50%;
-            right: auto;
-            transform: translate(-50%, -50%);
-	}
-    }
-    
-    /* Grid Art Gallery with Lightbox */
-    .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 15px;
-        margin: 20px 0;
-    }
+            -ms-transform: translate(-50%, -50%);
+        }
 
-    .gallery-item {
-        position: relative;
-        aspect-ratio: 1;
-        overflow: hidden;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    
-    .gallery-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    }
-    
-    .gallery-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-    }
-    
-    .gallery-item:hover img {
-        transform: scale(1.05);
-    }
-    .gallery-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0,0,0,0.7);
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        font-size: 14px;
-        text-align: center;
-        padding: 10px;
-    }
-    
-    .gallery-item:hover .gallery-overlay {
-        opacity: 1;
-    }
-    /* Lightbox */
-    .lightbox {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.9);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-    }
-    
-    .lightbox.active {
-        display: flex;
-    }
-    
-    .lightbox-content {
-        max-width: 90%;
-        max-height: 90%;
-        position: relative;
-    }
-    
-    .lightbox img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-    }
-    
-    .lightbox-close {
-	position: absolute;
-	top: -40px;
-	right: 0;
-	color: white;
-	font-size: 30px;
-	cursor: pointer;
-	background: rgba(0,0,0,0.5);
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	transition: background 0.3s ease;
-    }
-	
-    .lightbox-close:hover {
-	background: rgba(0,0,0,0.8);
-    }
-    
-    /* Mobile Responsive */
-    @media (max-width: 480px) {
-	.gallery-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-	}
-	
-	.gallery-overlay {
-            font-size: 12px;
-            padding: 5px;
-	}
-    }
-	
-  </style>
+        /* Images */
+        .image { max-width: 100%; height: auto; }
+        img { vertical-align: middle; }
+        .round { border-radius: 4px; }
+
+        /* Effects */
+        .card-2 { box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
+
+        .animate-opacity { animation: opac 0.8s; }
+        @keyframes opac { from { opacity: 0; } to { opacity: 1; } }
+
+        .animate-top { position: relative; animation: animatetop 0.4s; }
+        @keyframes animatetop { from { top: -300px; opacity: 0; } to { top: 0; opacity: 1; } }
+
+        /* Responsive */
+        .hide { display: none !important; }
+        .show { display: block !important; }
+        .block { display: block; width: 100%; }
+
+        @media (max-width: 600px) {
+            .hide-small { display: none !important; }
+        }
+
+        @media (min-width: 601px) and (max-width: 992px) {
+            .hide-medium { display: none !important; }
+        }
+
+        @media (min-width: 993px) {
+            .hide-large { display: none !important; }
+        }
+
+        .right { float: right !important; }
+
+        /* Turn off parallax scrolling for tablets and phones */
+        @media only screen and (max-device-width: 1024px) {
+            .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
+                background-attachment: scroll;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <div class="top">
-    <div class="bar" id="myNavbar">
-      <a class="bar-item button hover-black hide-medium hide-large right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-        <i class="fa fa-bars"></i>
-      </a>
-      <a href="#home" class="bar-item button">HOME</a>
-      <a href="#about" class="bar-item button hide-small"><i class="fa fa-user"></i> ABOUT</a>
-      <a href="#work-experience" class="bar-item button hide-small"><i class="fa fa-th"></i> DATA MENTOR</a>
-      <a href="#education" class="bar-item button hide-small"><i class="fa fa-laptop"></i> EDUCATION</a>
-      <a href="#artwork" class="bar-item button hide-small"><i class="fa fa-laptop"></i> ARTWORK</a>
-      <a href="#contact" class="bar-item button hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
-      <a href="#" class="bar-item button hide-small right hover-red">
-        <i class="fa fa-search"></i>
-      </a>
-    </div>
-    
-    <!-- Mobile Navigation -->
-    <div id="navDemo" class="bar-block white hide hide-large hide-medium">
-      <a href="#about" class="bar-item button" onclick="toggleFunction()">ABOUT</a>
-      <a href="#work-experience" class="bar-item button" onclick="toggleFunction()">WORK EXPERIENCE</a>
-      <a href="#education" class="bar-item button" onclick="toggleFunction()">EDUCATION</a>
-      <a href="#artwork" class="bar-item button" onclick="toggleFunction()">ARTWORK</a>
-      <a href="#contact" class="bar-item button" onclick="toggleFunction()">CONTACT</a>
-    </div>
-  </div>
-  
-  
-  <!-- About Section -->
-  <div class="content container padding-64" id="about">
-    <h3 class="center">Dr Sue Cheatham</h3>
-    
-    <div class="row">
-      <div class="col m6 center padding-large">
-        <img src="images/SueControlRoom.jpg" class="round image" alt="Photo of Me" width="100%">
-	<!--                <p class="small opacity"><em>Me at CERN, where particles behave better than most datasets!</em></p> -->
-      </div>
-      
-      <div class="col m6 padding-medium">
-	<br /><br /><br />
-        <p>I am a particle physicist turned data consultant.</p>
-	<p>It turns out that the skills you need to find subatomic particles are exactly what you need to find business insights: patience, precision, and an unhealthy obsession with data quality.</p>
-	
-	<!--	<p>It turns out, the skills needed to find a Higgs boson translate pretty well to finding patterns in your company's data!</p> -->
-        
-        <p>Curiosity and clear communication are everything.</p>
-        
-        <p>When I'm not teaching machines to learn or humans to understand data, you'll find me exploring mountains, learning Italian or oil painting.</p>
-      </div>
-      
-    </div>
-  </div>
-  
-  <!-- Work Experience Section -->
-  <div class="bgimg-2 display-container opacity-min">
-    <div class="display-middle">
-      <span class="xxlarge text-white wide">DATA MENTOR</span>
-    </div>
-  </div>
-  
-  <div class="content container padding-64" id="work-experience">
-    <h3 class="center">DATA MENTOR</h3>
-    <p class="center"><em>"The core advantage of data is that it tells you something about the world that you
-	didn't know before." Hilary Mason</em></p>
-    
-    <div class="container">
-      
-      <p>An independent data science and AI consultant, with clients ranging from tiny startups to global organizations.</p>
-      
-      <div class="row">
-        <div class="col l6 padding">
+    <!-- Navigation -->
+    <div class="top">
+        <div class="bar" id="myNavbar">
+            <a class="bar-item button hover-black hide-medium hide-large right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+                <i class="fa fa-bars"></i>
+            </a>
+            <a href="#home" class="bar-item button">HOME</a>
+            <a href="#about" class="bar-item button hide-small"><i class="fa fa-user"></i> ABOUT</a>
+            <a href="#work-experience" class="bar-item button hide-small"><i class="fa fa-th"></i> DATA MENTOR</a>
+            <a href="#education" class="bar-item button hide-small"><i class="fa fa-laptop"></i> EDUCATION</a>
+            <a href="#contact" class="bar-item button hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+            <a href="#" class="bar-item button hide-small right hover-red">
+                <i class="fa fa-search"></i>
+            </a>
+        </div>
 
-	  <div class="hover-container">
-            <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #4CAF50;">
-              <h6><strong>🛡️ UNHCR</strong></h6>
-              <p class="small">Applied AI to legal analysis for refugees and asylum seekers - researching the efficacy and feasibility of applying AI to legal analysis.</p>
+        <!-- Mobile Navigation -->
+        <div id="navDemo" class="bar-block white hide hide-large hide-medium">
+            <a href="#about" class="bar-item button" onclick="toggleFunction()">ABOUT</a>
+            <a href="#work-experience" class="bar-item button" onclick="toggleFunction()">WORK EXPERIENCE</a>
+            <a href="#education" class="bar-item button" onclick="toggleFunction()">EDUCATION</a>
+            <a href="#contact" class="bar-item button" onclick="toggleFunction()">CONTACT</a>
+        </div>
+    </div>
+
+    <!-- Hero Section 
+    <div class="bgimg-1 display-container opacity-min" id="home">
+        <div class="display-middle" style="white-space:nowrap;">
+            <span class="center padding-large black xlarge wide animate-opacity">
+                DR <span class="hide-small">SUE</span> CHEATHAM
+                <br>
+                <span class="medium" style="letter-spacing: 2px; font-weight: normal;">
+                    🔬 Particle Physicist → Data and AI Consultant
+                </span>
+            </span>
+        </div>
+    </div>
+    -->
+    
+    <!-- About Section -->
+    <div class="content container padding-64" id="about">
+        <h2 class="center">Dr SUE CHEATHAM</h3>
+
+        <div class="row">
+            <div class="col m6 center padding-large">
+                <img src="images/SueControlRoom.jpg" class="round image" alt="Photo of Me" width="100%">
+		<!--                <p class="small opacity"><em>Me at CERN, where particles behave better than most datasets!</em></p> -->
             </div>
-	    <div class="hover-image"> 
-	      <img src="images/unhcr.jpg" alt="Project" style="width: 100%; border-radius: 4px;">
-	      <p style="margin: 10px 0 0 0; font-size: 12px; color: #666; text-align: center;">Retrieval Augmented Generation and Prompt Development</p>
-	    </div>
-	  </div>
-	  
-	  <div class="hover-container">
-            <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #2196F3;">
-	      <h6><strong>🏥 WHO</strong></h6>
-	      <p class="small">Enhanced vaccine safety analysis - using advanced NLP and unsupervised learning techniques, delivering greater understanding of global health issues.</p>
+
+            <div class="col m6 hide-small padding-medium">
+	      <br /><br /><br />
+              <p>I am a particle physicist turned data consultant.</p>
+	      <p>It turns out that the skills you need to find subatomic particles are exactly what you need to find business insights: patience, precision, and an unhealthy obsession with data quality.</p>
+
+	      <!--	<p>It turns out, the skills needed to find a Higgs boson translate pretty well to finding patterns in your company's data!</p> -->
+              
+              <p>Curiosity and clear communication are everything.</p>
+              
+              <p>When I'm not teaching machines to learn or humans to understand data, you'll find me exploring mountains, learning Italian or oil painting.</p>
             </div>
-	    <div class="hover-image"> 
-	      <img src="images/who-project.jpg" alt="Project" style="width: 100%; border-radius: 4px;">
-	      <p style="margin: 10px 0 0 0; font-size: 12px; color: #666; text-align: center;">Studying social media posts</p>
-	    </div>
-	  </div>
+	    
+        </div>
+
+        <p class="center"><em>"The core advantage of data is that it tells you something about the world that you didn't know before." Hilary Mason</em></p>
+
+	<h2 class="center">SERVICES</h3>
+        <div class="container">
+  
+  
+	<h3 class="service-title">Data Science Consulting</h2>
+        <p class="service-description">Turn complex data into actionable business insights using ML, statistical analysis, and visualization</p>
+
+
+	<h3 class="service-title">Training & Workshops</h2>
+        <p class="service-description">Teach teams to understand and use data/AI effectively - from executives to technical staff</p>
+
+	<h3 class="service-title">AI Implementation</h2>
+        <p class="service-description">Help organizations adopt AI tools responsibly - from strategy to deployment, including LLM fine-tuning and prompt engineering</p>
+
+        </div>
+
+    </div>
+
+    
+    <!-- Work Experience Section -->
+    <div class="bgimg-2 display-container opacity-min">
+        <div class="display-middle">
+            <span class="xxlarge text-white wide">DATA MENTOR</span>
+        </div>
+    </div>
+
+    <div class="content container padding-64" id="work-experience">
+        <h3 class="center">PAST PROJECTS AND COLLABORATIONS</h3>
+
+	
+        <div class="container">
 	  
-	  <div class="hover-container">  
-            <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #FF9800;">
-	      <h6><strong>♻️  IUCN</strong></h6>
-	      <p class="small">AI-powered plastic waste impact analysis for Small Island Developing States - extracting critical insights on plastic waste.</p>
+            <p>As an independent data science and AI consultant, my clients range from tiny startups to global organizations, and somehow I always manage to find the story their data is trying to tell.</p>
+            
+              <!--<h4 style="color: #2196F3;">Client Success Stories (The Greatest Hits)</h4>-->
+
+            <div class="row">
+                <div class="col l6 padding">
+                    <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #4CAF50;">
+                        <h6><strong>🛡️ UNHCR</strong></h6>
+                        <p class="small">Applied AI to legal analysis for refugees and asylum seekers - researching the efficacy and feasibility of applying AI to legal analysis.</p>
+                    </div>
+                    
+                    <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #2196F3;">
+                        <h6><strong>🏥 WHO</strong></h6>
+                        <p class="small">Enhanced vaccine safety analysis - using advanced NLP and unsupervised learning techniques, delivering greater understanding of global health issues.</p>
+                    </div>
+                    
+                    <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #FF9800;">
+                        <h6><strong>♻️  IUCN</strong></h6>
+                        <p class="small">AI-powered plastic waste impact analysis for Small Island Developing States - extracting critical insights on plastic waste.</p>
+                    </div>
+
+		    <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #000080;">                                       
+                        <h6><strong>🌍 ITC</strong></h6>                                                                                                                       
+                        <p class="small">Performance intelligence - developing data visualisations and Tableau dashboards to communicate global trade data, leveraging data sources derived from REST APIs.</p>       
+                    </div> 
+		    
+                    <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #4CAF50;">
+                        <h6><strong>🌉 Bridges to Development NGO</strong></h6>
+                        <p class="small">Data driven gap analysis - creating visualisations to share data insights, optimizing vaccine implementation strategies in low and lower-middle-income countries.</p>
+                    </div>
+                </div>
+                
+                <div class="col l6 padding">
+                    <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #8BC34A;">
+                        <h6><strong>🥃 Distillery Saint Gervais Mont Blanc</strong></h6>
+                        <p class="small">Achieved 100% turnaround for a local distillery - proving that data science goes well with good spirits!</p>
+                    </div>
+
+		    <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #9C27B0;">
+                        <h6><strong>👶 OPBG Children Hospital</strong></h6>
+                    <p class="small">Improved social media health monitoring by 10%+ with multilingual LLMs - through fine-tuning of multi-lingual Large Language Models.</p>
+		    </div>                    
+
+                    <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #FF5722;">
+                        <h6><strong>🎓 Webster University</strong></h6>
+                        <p class="small">Teaching "Database Applications" with a 4.63/5.0 student rating across engagement, organisation, expertise and rapport</p>
+                    </div>
+                    
+                    <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #E91E63;">
+                        <h6><strong>👩‍💻 AllWomen</strong></h6>
+                        <p class="small">A knowledge-sharing, social and professional global community network for women. AI training including coding and ethics - because the future of AI should include everyone.</p>
+                    </div>
+                    
+                    <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #673AB7;">
+                        <h6><strong>🏛️ EPFL</strong></h6>
+                        <p class="small">"Story-telling through data" presentation at Eurotech Summer School, Open Science In Practice - because every dataset has a story</p>
+                    </div>
+                </div>
             </div>
-	    <div class="hover-image"> 
-	      <img src="images/iucn.jpg" alt="Project" style="width: 100%; border-radius: 4px;">
-	      <p style="margin: 10px 0 0 0; font-size: 12px; color: #666; text-align: center;">There is a clear need for international cooperation to address the plastic pollution problem</p>
-	    </div>
-	  </div>
-	  
-	  <div class="hover-container">
-	    <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #000080;">  
-	      <h6><strong>🌍 ITC</strong></h6>
-	      <p class="small">Performance intelligence - developing data visualisations and Tableau dashboards to communicate global trade data, leveraging data sources derived from REST APIs.</p>       
-            </div> 
-	    <div class="hover-image"> 
-	      <img src="images/itc.jpg" alt="Project" style="width: 100%; border-radius: 4px;">
-	      <p style="margin: 10px 0 0 0; font-size: 12px; color: #666; text-align: center;">Tableau dashboards</p>
-	    </div>
-	  </div>
-	  
-	  <div class="hover-container">
-            <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #4CAF50;">
-	      <h6><strong>🌉 Bridges to Development NGO</strong></h6>
-	      <p class="small">Data driven gap analysis - creating visualisations to share data insights, optimizing vaccine implementation strategies in low and lower-middle-income countries.</p>
-	    </div> 
-	    <div class="hover-image"> 
-	      <img src="images/bridges.jpg" alt="Project" style="width: 100%; border-radius: 4px;">
-	      <p style="margin: 10px 0 0 0; font-size: 12px; color: #666; text-align: center;">Collaboration using WHO and GAVI data</p>
-	    </div>
-	  </div>
-	  
+        </div>
+
+
+	
+    </div>
+
+    <!-- Education Section -->
+    <div class="bgimg-3 display-container opacity-min">
+        <div class="display-middle">
+            <span class="xxlarge text-white wide">EDUCATION</span>
+        </div>
+    </div>
+
+    <div class="content container padding-64" id="education">
+        <h3 class="center">EDUCATION</h3>
+        <p class="center"><em>“Real education should educate us out of self into something far finer; into a selflessness which links us with all humanity.” —Nancy Astor</em></p>
+        
+        <div class="row">
+            <div class="col l8">
+                <div style="background: linear-gradient(45deg, #f1f1f1, #e8f4f8); padding: 24px; border-radius: 8px; margin: 16px 0; border-left: 6px solid #2196F3;">
+                    <h5><strong> PhD Experimental High Energy Physics</strong></h5>
+                    <p><em>Lancaster University, UK &amp; CERN</em></p>
+                    <p>Where I proved that electrons have two kinematical configurations known as 'cowboys' &amp; 'sailors'</p>
+                </div>
+
+                <div style="background: linear-gradient(45deg, #f8f5f1, #f4f1e8); padding: 24px; border-radius: 8px; margin: 16px 0; border-left: 6px solid #FF9800;">
+                    <h5><strong> Post Graduate Certificate of Education</strong></h5>
+                    <p><em>Bangor University, UK</em></p>
+                    <p>Focused on pedagogy and leadership</p>
+                </div>
+                
+                <div style="background: linear-gradient(45deg, #f1f8f1, #e8f4e8); padding: 24px; border-radius: 8px; margin: 16px 0; border-left: 6px solid #4CAF50;">
+                    <h5><strong> BSc Pure and Applied Physics 2.1 (HONS)</strong></h5>
+                    <p><em>Birmingham University, UK</em></p>
+                    <p>Where it all began - my love affair with understanding how the universe works</p>
+                </div>
+            </div>
 	</div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="bgimg-4 display-container opacity-min">
+      <div class="display-middle">
+        <span class="xxlarge text-white wide">CONTACT</span>
+      </div>
+    </div>
+
+
+	<div class="content container padding-64" id="contact">
+	  <h3 class="center">WORK WITH ME</h3>
+	  <p class="center"><em>"Ready to turn your data chaos into clarity? Let's chat!"</em> 💬</p>
+	  
+	  <p class="center">Drop me a line if you:</p>
+	  <ul style="text-align: center; margin-center: 20px; list-style-type: none;">
+            <li>🤔 Have data that's giving you a headache</li>
+            <li>🚀 Want to implement AI but don't know where to start</li>
+            <li>📊 Need someone to translate your data into actionable insights</li>
+
+	  </ul>
+
+	  <br>
+	  <p class="center">Currently available for:</p>
+	  <ul style="text-align: center; margin-center: 20px;list-style-type: none;">
+	    <li> Data science & ML consulting projects</li>
+	    <li> AI strategy and implementation</li>
+	    <li> Corporate training in data literacy and AI</li>
+	    <li> NLP and text analysis</li>	    
+	      
+          </ul>
+	  <br><br>
+	  <p  class="center"><strong>cheatham@datamentor.digital</strong></p>
+
+	  <br>
+	  <p class="center"><strong>Connect on LinkedIn:</strong>
+	    &nbsp;
+	    
+
+	    <a href="https://www.linkedin.com/in/susan-cheatham/" target="_blank" rel="noopener noreferrer" class="linkedin-link">
+
+	      <i class="fa fa-linkedin hover-opacity"></i>
+	    </a>
+	  </p>
 	
-        <div class="col l6 padding">
 
-	  <div class="hover-container">
-	    <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #8BC34A;">
-	      <h6><strong>🥃 Distillery Saint Gervais Mont Blanc</strong></h6>
-	      <p class="small">Achieved 100% turnaround for a local distillery - proving that data science goes well with good spirits!</p>
-	    </div>
-	    <div class="hover-image  hover-image-left"> 
-	      <img src="images/distillery.jpg" alt="Project" style="width: 100%; border-radius: 4px;">
-	      <p style="margin: 10px 0 0 0; font-size: 12px; color: #666; text-align: center;">The highest distillery in Western Europe, producing hand crafted gin and whisky</p>
-	    </div>
+
+	  <div class="center padding-32">
+	    <p>Proud CERN Alumni</p>
+	    <a href="https://home.cern/" target="_blank">
+              <img src="images/CERN-logo_outline.jpeg" style="width:10%; margin: 16px;" class="hover-opacity" alt="CERN logo">
+	    </a>
 	  </div>
-	  
-	  <div class="hover-container">
-	    <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #9C27B0;">
-	      <h6><strong>👶 OPBG Children Hospital</strong></h6>
-	      <p class="small">Improved social media health monitoring by 10%+ with multilingual LLMs - through fine-tuning of multi-lingual Large Language Models.</p>
-	    </div>
-            <div class="hover-image  hover-image-left"> 
-	      <img src="images/opbg.jpg" alt="Project" style="width: 100%; border-radius: 4px;">
-	      <p style="margin: 10px 0 0 0; font-size: 12px; color: #666; text-align: center;">Development and validation of a machine learning model</p>
-	    </div>
-	  </div>
-	  
-	  <div class="hover-container">
-            <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #FF5722;">
-              <h6><strong>🎓 Webster University</strong></h6>
-              <p class="small">Teaching "Database Applications" with a 4.63/5.0 student rating across engagement, organisation, expertise and rapport</p>
-            </div>
-	    <div class="hover-image  hover-image-left"> 
-	      <img src="images/webster.jpg" alt="Project" style="width: 100%; border-radius: 4px;">
-	      <p style="margin: 10px 0 0 0; font-size: 12px; color: #666; text-align: center;">Webster Geneva Campus</p>
-	    </div>
-	  </div>
-	  
-	  <div class="hover-container">
-            <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #E91E63;">
-	      <h6><strong>👩‍💻 AllWomen</strong></h6>
-	      <p class="small">A knowledge-sharing, social and professional global community network for women. AI training including coding and ethics - because the future of AI should include everyone.</p>
-            </div>
-	    <div class="hover-image hover-image-left"> 
-	      <img src="images/allwomen.jpg" alt="Project" style="width: 100%; border-radius: 4px;">
-	      <p style="margin: 10px 0 0 0; font-size: 12px; color: #666; text-align: center;">A real pleasure to share my knowledge and insights about AI to such an enthusiastic group of women</p>
-	    </div>
-	  </div>
-	  
-	  <div class="hover-container">
-            <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #673AB7;">
-	      <h6><strong>🏛️ EPFL</strong></h6>
-	      <p class="small">"Story-telling through data" presentation at Eurotech Summer School, Open Science In Practice - because every dataset has a story</p>
-            </div>
-	    <div class="hover-image hover-image-left"> 
-	      <img src="images/epfl.jpg" alt="Project" style="width: 100%; border-radius: 4px;">
-	      <p style="margin: 10px 0 0 0; font-size: 12px; color: #666; text-align: center;">What makes a good data visualisation ?</p>
-	    </div>
-	  </div>
-
-        </div>
-      </div>	
-    </div>
-    
-    <p class="center"><strong>Find me on LinkedIn:</strong>
-      &nbsp;
-      <a href="http://www.linkedin.com/in/susan-cheatham-18a96483?trk=hp-identity-name" target="_blank">
-	<i class="fa fa-linkedin hover-opacity"></i>
-      </a>
-    </p>
-    
-  </div>
-
-  <!-- Education Section -->
-  <div class="bgimg-3 display-container opacity-min">
-    <div class="display-middle">
-      <span class="xxlarge text-white wide">EDUCATION</span>
-    </div>
-  </div>
-
-  <div class="content container padding-64" id="education"> <!--  -->
-    <h3 class="center">EDUCATION</h3>
-    <p class="center"><em>“Real education should educate us out of self into something far finer; into a selflessness which links us with all humanity.” —Nancy Astor</em></p>
-        
-    <div class="row">
-      <div class="col l12">
-        <div style="background: linear-gradient(45deg, #f1f1f1, #e8f4f8); padding: 24px; border-radius: 8px; margin: 16px 0; border-left: 6px solid #2196F3;">
-          <h5><strong> PhD Experimental High Energy Physics</strong></h5>
-          <p><em>Lancaster University, UK &amp; CERN</em></p>
-          <p>Where I proved that electrons have two kinematical configurations known as 'cowboys' &amp; 'sailors'</p>
-        </div>
-	
-        <div style="background: linear-gradient(45deg, #f8f5f1, #f4f1e8); padding: 24px; border-radius: 8px; margin: 16px 0; border-left: 6px solid #FF9800;">
-          <h5><strong> Post Graduate Certificate of Education</strong></h5>
-          <p><em>Bangor University, UK</em></p>
-          <p>Focused on pedagogy and leadership</p>
-        </div>
-        
-        <div style="background: linear-gradient(45deg, #f1f8f1, #e8f4e8); padding: 24px; border-radius: 8px; margin: 16px 0; border-left: 6px solid #4CAF50;">
-          <h5><strong> BSc Pure and Applied Physics 2.1 (HONS)</strong></h5>
-          <p><em>Birmingham University, UK</em></p>
-          <p>Where it all began - my love affair with understanding how the universe works</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  
-  <!-- Artwork Parallax--> 
-  <div class="bgimg-5 display-container opacity-min">
-    <div class="display-middle">
-      <span class="xxlarge text-white wide">ARTWORK</span>
-    </div>
-  </div>
-    
-  <div class="content container padding-64" id="artwork">
-    <h3 class="center">CREATIVE EXPLORATIONS</h3>
-    <p class="center"><em>"Where science meets art - visualizing with oils"</em> </p>
-      
-
-    <div class="gallery-grid">
-      <div class="gallery-item" onclick="openLightbox('images/artwork1.jpg')">
-        <img src="images/artwork1.jpg" alt="Artwork 1">
-        <div class="gallery-overlay">
-          <div>
-            <strong>Swiss Aiguilles Rouge</strong><br>
-            <!--<small>Medium • Year</small>-->
-          </div>
-        </div>
-      </div>
-
-      <div class="gallery-item" onclick="openLightbox('images/artwork2.jpg')">
-        <img src="images/artwork2.jpg" alt="Artwork 2">
-        <div class="gallery-overlay">
-          <div>
-            <strong>Plastic waste</strong><br>
-          </div>
-        </div>
-      </div>
-      
-      <div class="gallery-item" onclick="openLightbox('images/artwork3.jpg')">
-        <img src="images/artwork3.jpg" alt="Artwork 3">
-        <div class="gallery-overlay">
-          <div>
-            <strong>Mountains</strong><br>
-          </div>
-        </div>
-      </div>
-      
-      <div class="gallery-item" onclick="openLightbox('images/artwork4.jpg')">
-        <img src="images/artwork4.jpg" alt="Artwork 4">
-        <div class="gallery-overlay">
-          <div>
-            <strong>Mountain Refuge</strong><br>
-          </div>
-        </div>
-      </div>
-      
-	
-    </div>
-  </div>
-    
-  <!-- Contact Section -->
-  <div class="bgimg-4 display-container opacity-min">
-    <div class="display-middle">
-      <span class="xxlarge text-white wide">CONTACT</span>
-    </div>
-  </div>
-
-  <div class="content container padding-64" id="contact">
-    <h3 class="center">CONTACT ME</h3>
-    <p class="center"><em>"Ready to turn your data chaos into clarity? Let's chat!"</em> 💬</p>
-    
-    <p class="center">Drop me a line if you:</p>
-    <ul style="text-align: center; margin-center: 20px; list-style-type: none;">
-      <li>🤔 Have data that's giving you a headache</li>
-      <li>🚀 Want to implement AI but don't know where to start</li>
-      <li>📊 Need someone to translate your data into actionable insights</li>
-    </ul>
-
-	<br>
-    <p class="center">Currently available for:</p>
-    <ul style="text-align: center; margin-center: 20px;list-style-type: none;">
-    	<li> Data science & ML consulting projects</li>
-        <li> AI strategy and implementation</li>
-        <li> Corporate training in data literacy and AI</li>
-        <li> NLP and text analysis</li>
-
-    </ul>
-    <br><br>
-
-
-	  
-    <p  class="center"><strong>cheatham@datamentor.digital</strong></p>
-    
-    
-    <div class="center padding-32">
-      <p>Proud CERN Alumni</p>
-      <a href="https://home.cern/" target="_blank">
-        <img src="images/CERN-logo_outline.jpeg" style="width:10%; margin: 16px;" class="hover-opacity" alt="CERN logo">
-      </a>
-    </div>
-  </div>
-
+	</div>
 </div>
-
-
-<!-- LIGHTBOX HTML -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <div class="lightbox-content" onclick="event.stopPropagation()">
-        <div class="lightbox-close" onclick="closeLightbox()">×</div>
-        <img id="lightboxImg" src="" alt="Artwork">
-  </div>
-</div>
-
-
-<script>
-// Lightbox functionality
-function openLightbox(src) {
-    document.getElementById('lightboxImg').src = src;
-    document.getElementById('lightbox').classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('active');
-    document.body.style.overflow = 'auto';
-}
-
-// Close lightbox with Escape key
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        closeLightbox();
-    }
-});
-
-// Mobile menu toggle function
-function toggleFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("show") == -1) {
-        x.className += " show";
-    } else {
-        x.className = x.className.replace(" show", "");
-    }
-}
-
-// Change navbar style on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-    var navbar = document.getElementById("myNavbar");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "bar" + " card-2" + " animate-top" + " white";
-    } else {
-        navbar.className = navbar.className.replace(" card-2 animate-top white", "");
-    }
-}
-</script>
-
-
-</body>
-</html>
+	
